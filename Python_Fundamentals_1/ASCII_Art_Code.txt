@@ -1,0 +1,17 @@
+def factorial(num):
+    save_number = []
+    for number in range(num,-1,-1): 
+        new_number = number * (number-1)
+ #       print(num)
+  #      print(number)
+  #      print(new_number)
+        save_number.append(new_number)
+    print(save_number)
+    Final_number = sum(save_number)
+    print(Final_number)
+
+#    return save_number
+
+#factorial(6)
+
+print(mul([1,2,3,4,5,6]))
