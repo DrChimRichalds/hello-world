@@ -20,7 +20,6 @@ def decodeString(encodedList):
     decodedStr = ''
     for item in encodedList:
         decodedStr = decodedStr + item[0] * item[1]
-    print(decodedStr)
     return decodedStr
 
 # The filename that will be passed to this function
@@ -38,9 +37,7 @@ def encodeFile(filename, newFilename):
 def decodeFile(filename):
     with open(filename, 'r') as f:
         data = f.read()
-        decoded_data = decodeString(data)
-    with open(filename, 'w') as f:
-        json.loads(decoded_data)
+    return decodeString(json.loads(data))
 
 # decodeFile("/Users/charlesmullins/Documents/Documents - Charles’s MacBook Air/2026/LI_Courses/Ex_Files_Python_EssT/10_04_challenge_art_encoded.txt")
 
@@ -49,12 +46,12 @@ def decodeFile(filename):
 # encodeString("Hello World!")
 # decodeString([('H', 1), ('e', 1), ('l', 2), ('o', 1), (' ', 1), ('W', 1), ('o', 1), ('r', 1), ('l', 1), ('d', 1), ('!', 1)])
 
-original_filesize = os.path.getsize("10_04_challenge_art_second.txt.rtf")
+original_filesize = os.path.getsize("/Users/charlesmullins/Documents/Documents - Charles’s MacBook Air/2026/LI_Courses/Ex_Files_Python_EssT/10_04_challenge_art.txt.rtf")
 print(f'Original file size: {original_filesize}')
-# # Answer.encodeFile('10_04_challenge_art.txt', '10_04_challenge_art_encoded.txt')
+encodeFile('10_04_challenge_art.txt', '10_04_challenge_art_encoded.txt')
 
 
-# new_filesize = os.path.getsize("/Users/charlesmullins/Documents/Documents - Charles’s MacBook Air/2026/LI_Courses/Ex_Files_Python_EssT/10_04_challenge_art_encoded.txt")
-# print(f'New file size: {new_filesize}')
-# decoded = decodeFile("/Users/charlesmullins/Documents/Documents - Charles’s MacBook Air/2026/LI_Courses/Ex_Files_Python_EssT/10_04_challenge_art_encoded.txt")
-# print(decoded)
+new_filesize = os.path.getsize("/Users/charlesmullins/Documents/Documents - Charles’s MacBook Air/2026/LI_Courses/Ex_Files_Python_EssT/10_04_challenge_art_encoded.txt")
+print(f'New file size: {new_filesize}')
+decoded = decodeFile("/Users/charlesmullins/Documents/Documents - Charles’s MacBook Air/2026/LI_Courses/Ex_Files_Python_EssT/10_04_challenge_art_encoded.txt")
+print(decoded)
